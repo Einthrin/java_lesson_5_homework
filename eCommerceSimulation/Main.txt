@@ -1,0 +1,49 @@
+package eCommerceSimulation;
+
+import eCommerceSimulation.business.abstracts.UserService;
+import eCommerceSimulation.business.concretes.UserManager;
+import eCommerceSimulation.core.concretes.EMailVerificationManager;
+import eCommerceSimulation.core.concretes.InputVerification;
+import eCommerceSimulation.core.concretes.JGoogleUserVerificationServiceAdapter;
+import eCommerceSimulation.dataAccess.concretes.UserDao;
+import eCommerceSimulation.entities.concretes.User;
+
+public class Main
+{
+
+	public static void main(String[] args)
+	{
+		User user1 = new User("Yasin","Çiftçi","yasinciftci@hotmail.com","12345678910");
+		
+		User user2 = new User("Engin","Demiroğ","engindemiroğ@hotmail.com","12345678910");
+		
+		User user3 = new User("Erkan","Toros","erkantoros@hotmail.com","12345678910");
+		
+		UserService userService = new UserManager(new InputVerification(), new UserDao(), new EMailVerificationManager());
+		userService.register(user1);
+		
+		System.out.println("-------------------------------");
+		
+		userService.register(user2);
+		
+		System.out.println("-------------------------------");
+		
+		userService.register(user3);
+		
+		System.out.println("-------------------------------");
+		
+		
+		UserService userService2 = new UserManager(new JGoogleUserVerificationServiceAdapter(),new UserDao(), new EMailVerificationManager());
+		userService2.register(user3);
+		
+		
+		System.out.println("-------------------------------");
+		
+		userService.login("yasinciftci@hotmail.com", "12345678910");
+		
+		System.out.println("-------------------------------");
+		
+		userService.login("engindemiroğ@hotmail.com", "12345678910");
+	}
+
+}

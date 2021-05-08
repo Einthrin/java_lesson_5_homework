@@ -1,0 +1,17 @@
+package eCommerceSimulation.core.concretes;
+
+import eCommerceSimulation.JGoogleUserVerification.JGoogleVerificationService;
+import eCommerceSimulation.core.abstracts.InputVerificationService;
+import eCommerceSimulation.entities.concretes.User;
+
+public class JGoogleUserVerificationServiceAdapter implements InputVerificationService
+{
+
+	@Override
+	public boolean isVerification(User user)
+	{
+		JGoogleVerificationService googleUserVerification = new JGoogleVerificationService();
+		return googleUserVerification.isVerification();
+	}
+	
+}

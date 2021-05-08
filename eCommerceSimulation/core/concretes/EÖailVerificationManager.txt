@@ -1,0 +1,14 @@
+package eCommerceSimulation.core.concretes;
+
+import eCommerceSimulation.core.abstracts.VerificationService;
+
+public class EMailVerificationManager implements VerificationService
+{
+
+	@Override
+	public void sendVerificationMail()
+	{
+		System.out.println("Doğrulama maili mail adresinize yollanmıştır.");
+	}
+	
+}

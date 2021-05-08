@@ -1,0 +1,12 @@
+package eCommerceSimulation.JGoogleUserVerification;
+
+public class JGoogleVerificationService
+{
+	
+	public boolean isVerification()
+	{
+		System.out.println("Google sistemi ile doğrulandı.");
+		return true;
+	}
+	
+}
